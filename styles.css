@@ -1,0 +1,307 @@
+/* styles.css - Light of the World (Gold + Navy + White) */
+:root{
+  --gold: #f1c40f;
+  --navy: #2c3e50;
+  --white: #ffffff;
+  --bg: #ecf0f1;
+  --muted: #6b7a89;
+  --card-shadow: 0 8px 24px rgba(44,62,80,0.08);
+  --radius:16px;
+  --pad:20px;
+  --accent-glow: 0 6px 20px rgba(241,196,15,0.15);
+  --font-sans: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: var(--font-sans);
+  color: #213142;
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:28px;
+  line-height:1.5;
+}
+
+/* main container */
+.container{
+  max-width:1040px;
+  margin:0 auto;
+  background:var(--white);
+  border-radius:24px;
+  box-shadow:var(--card-shadow);
+  padding:28px;
+}
+
+/* header */
+.header{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  margin-bottom:20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 30px;
+}
+.logo {
+  width:78px;
+  height:78px;
+  border-radius:16px;
+  background:linear-gradient(135deg,var(--gold), #ffd86b);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  color:var(--navy);
+  font-size:20px;
+  box-shadow: var(--accent-glow);
+}
+.title { font-size:20px; font-weight:800; color:var(--navy); }
+.subtitle { color:var(--muted); font-size:13px; }
+
+/* login layout */
+.login-card{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  align-items:center;
+}
+.login-left{
+  padding:12px 6px;
+}
+.form-group{margin-bottom:12px}
+label{display:block;font-weight:700;font-size:13px;margin-bottom:6px;color:var(--navy)}
+input[type="text"], input[type="password"]{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid #e3e7ea;
+  font-size:14px;
+  background:#fbfdff;
+}
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:12px;
+  background:var(--navy);
+  color:var(--white);
+  text-decoration:none;
+  font-weight:800;
+  cursor:pointer;
+  border:none;
+  box-shadow: var(--accent-glow);
+}
+.btn-ghost{
+  background:transparent;
+  border:2px solid var(--navy);
+  color:var(--navy);
+}
+.note{font-size:13px;color:var(--muted)}
+
+/* card grid */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin-top:18px;
+}
+.card{
+  background: linear-gradient(180deg,#ffffff,#fcfcff);
+  border-radius:14px;
+  padding:12px;
+  box-shadow: 0 6px 18px rgba(33,49,66,0.04);
+  display:flex;
+  gap:12px;
+  align-items:center;
+  cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease;
+  border:1px solid rgba(44,62,80,0.04);
+}
+.card:hover{transform:translateY(-6px); box-shadow: 0 18px 36px rgba(44,62,80,0.09);}
+.thumb{
+  width:120px;height:82px;border-radius:10px;flex-shrink:0;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;background:#eee;
+  border:1px solid rgba(0,0,0,0.04);
+}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.card h3{margin:0;font-size:16px;color:var(--navy)}
+.card p{margin:4px 0 0;color:var(--muted);font-size:13px}
+
+/* hero + content */
+.hero{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  margin-bottom:18px;
+}
+.hero .hero-img{width:240px;height:150px;border-radius:14px;overflow:hidden}
+.hero .hero-img img{width:100%;height:100%;object-fit:cover}
+.hero .hero-text h1{margin:0;font-size:22px;color:var(--navy)}
+.content{background:#fff;padding:18px;border-radius:12px;box-shadow:var(--card-shadow)}
+.article{margin-top:12px;line-height:1.75;color:#253447}
+
+/* top-right & footer */
+.top-right{margin-left:auto}
+.logout{background:#f2f6f9;color:var(--navy);padding:8px 12px;border-radius:10px;font-weight:700;border:2px solid rgba(44,62,80,0.06)}
+.footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+.back-link{display:inline-block;margin-top:12px}
+
+/* small visual accent for gold headings */
+.gold-line{
+  display:inline-block;
+  height:6px;
+  width:64px;
+  background:linear-gradient(90deg,var(--gold), #ffd86b);
+  border-radius:6px;
+  margin:8px 0 14px 0;
+}
+
+/* responsive */
+@media(max-width:880px){
+  .login-card{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .hero{flex-direction:column}
+  .hero .hero-img{width:100%;height:200px}
+}
+
+.about-img {
+    width: 300  px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* Soft Glow Animation */
+.glow {
+    animation: softGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes softGlow {
+    0% {
+        box-shadow: 0 4px 10px rgba(241, 196, 15, 0.4);
+    }
+    100% {
+        box-shadow: 0 4px 25px rgba(241, 196, 15, 0.9);
+    }
+}
+
+/* Bible Verse Styling */
+.verse {
+    text-align: center;
+    font-style: italic;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #ffffff; /* white text */
+}
+
+.verse span {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #f1c40f; /* gold accent for the reference */
+}
+
+
+/* Login Card Flex Layout */
+.login-card {
+    display: flex;
+    flex-direction: row;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Left side: Login form */
+.login-left {
+    flex: 1;
+    background-color: #ffffff; /* white */
+    padding: 30px;
+}
+
+/* Right side: About section */
+.login-right {
+    flex: 1;
+    background-color: #000000; /* black background */
+    padding: 30px;
+    color: #ffffff; /* default text color white */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* About section image */
+.about-img {
+    width: 250px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* Soft glow animation */
+.glow {
+    animation: softGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes softGlow {
+    0% { box-shadow: 0 4px 10px rgba(241, 196, 15, 0.4); }
+    100% { box-shadow: 0 4px 25px rgba(139, 137, 127, 0.9); }
+}
+
+/* Bible verse */
+.verse {
+    text-align: center;
+    font-style: italic;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+.verse span {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #f1c40f; /* gold accent */
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 900px) {
+    .login-card {
+        flex-direction: column; /* stack vertically */
+    }
+
+    .login-left,
+    .login-right {
+        flex: none;           /* take full width */
+        width: 100%;
+    }
+
+    .login-right {
+        padding: 20px;
+        text-align: center;  /* center text on mobile */
+    }
+
+    .about-img {
+        width: 200px;        /* slightly smaller for mobile */
+        margin: 15px auto;
+    }
+
+    .verse {
+        font-size: 1rem;
+    }
+}
+
+/* About paragraph styling */
+.login-right .note {
+    color: #ffffff;           /* white text */
+    font-size: 1.2rem;        /* slightly larger */
+    font-weight: 500;         /* semi-bold */
+    font-style: italic;       /* optional italic for emphasis */
+    text-align: center;       /* center text */
+    line-height: 1.5;         /* better readability */
+    margin-bottom: 20px;      /* spacing from image below */
+    text-shadow: 0 0 5px rgba(170, 149, 63, 0.5); /* subtle gold glow */
+}

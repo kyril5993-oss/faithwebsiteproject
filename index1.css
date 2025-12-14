@@ -1,0 +1,217 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+:root {
+  --primary: #a03997;
+  --secondary: #93f9b9;
+  --dark: #990c5e;
+}
+
+/* ===== BODY & BACKGROUND ===== */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  overflow-x: hidden;
+  background: url("tcgc.jpeg") center / cover no-repeat fixed;
+}
+
+/* Mild blur overlay for better contrast */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  filter: blur(1.5px);
+  z-index: -1;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.container {
+  width: 92%;
+  max-width: 1280px;
+  margin-top: 40px;
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 35px 90px rgba(0,0,0,0.45);
+  animation: floatIn 1.3s ease;
+  background: url("rose1.jpg") center / cover no-repeat;
+  background-blend-mode: overlay;
+}
+
+/* Ensure content is above background */
+.container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 36px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #d43c3c;
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 900;
+  padding: 12px 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.25);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 14px;
+  opacity: 0.95;
+}
+
+.top-right {
+  margin-left: auto;
+}
+
+.logout {
+  padding: 11px 26px;
+  border-radius: 40px;
+  border: none;
+  background: #fff;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.35s ease;
+}
+
+.logout:hover {
+  background: var(--dark);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ===== INTRO / NOTE ===== */
+.note {
+  margin: 30px 34px 10px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #222;
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  padding: 34px;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: rgba(255,255,255,0.92);
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+  transition: 0.45s ease;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 35px 70px rgba(0,0,0,0.35);
+}
+
+/* Image */
+.thumb img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: 0.6s ease;
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
+/* Text */
+.card h3 {
+  font-size: 20px;
+  margin: 18px 18px 6px;
+  color: var(--primary);
+}
+
+.card p {
+  font-size: 15px;
+  margin: 0 18px 22px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 22px;
+  font-size: 14px;
+  color: #666;
+  background: rgba(255,255,255,.75);
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* ===== ANIMATION ===== */
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .note {
+    margin: 22px;
+  }
+
+  .grid {
+    padding: 24px;
+  }
+
+  .thumb img {
+    height: 180px;
+  }
+}

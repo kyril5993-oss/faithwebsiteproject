@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home — Light of the World</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <div class="container" role="main">
+    <div class="header">
+      <div class="logo">Light</div>
+      <div>
+        <div class="title">Welcome — Light of the World</div>
+        <div class="subtitle">Choose a page to explore value-centered web content</div>
+      </div>
+      <div class="top-right">
+        <button class="logout" onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px">
+      <div style="flex:1">
+        <p class="note">Hello <strong id="who">Guest</strong> — click a card to open a page. Each card includes an image and short description.</p>
+      </div>
+    </div>
+
+    <div class="grid" aria-label="project pages">
+      <div class="card" onclick="openPage('reflection.html')" role="link" tabindex="0" onkeypress="if(event.key==='Enter') openPage('reflection.html')">
+        <div class="thumb"><img src="self.jpg" alt="Reflection image"></div>
+        <div>
+          <h3>Personal Reflection</h3>
+          <p>Reflections on faith, integrity, and digital citizenship.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openPage('community.html')" role="link" tabindex="0" onkeypress="if(event.key==='Enter') openPage('community.html')">
+        <div class="thumb"><img src="community.jpeg" alt="Community"></div>
+        <div>
+          <h3>Community Service / Advocacy</h3>
+          <p>Promote initiatives: charity, outreach, and environmental care.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openPage('portfolio.html')" role="link" tabindex="0" onkeypress="if(event.key==='Enter') openPage('portfolio.html')">
+        <div class="thumb"><img src="barangay.jpeg" alt="Portfolio"></div>
+        <div>
+          <h3>Inspirational Portfolio</h3>
+          <p>Highlight work, goals, and guiding values — Light of the World style.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openPage('education.html')" role="link" tabindex="0" onkeypress="if(event.key==='Enter') openPage('education.html')">
+        <div class="thumb"><img src="mama2.jpeg" alt="Education"></div>
+        <div>
+          <h3>Educational / Informational</h3>
+          <p>Teach ethical digital practices; kindness and honesty online.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openPage('faithtech.html')" role="link" tabindex="0" onkeypress="if(event.key==='Enter') openPage('faithtech.html')">
+        <div class="thumb"><img src="god.jpg" alt="Faith and Tech"></div>
+        <div>
+          <h3>Faith & Technology</h3>
+          <p>Creative ways tech spreads positivity and spiritual messages online.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">Click any card to open the corresponding page. Replace images in the HTML or save them locally in an images/ folder.</div>
+  </div>
+
+<script>
+  if(sessionStorage.getItem('loggedIn') !== 'true'){
+    alert('Please log in first.');
+    location.href = 'index.html';
+  } else {
+    document.getElementById('who').innerText = sessionStorage.getItem('user') || 'Student';
+  }
+
+  function logout(){
+    sessionStorage.clear();
+    location.href = 'index.html';
+  }
+
+  function openPage(url){
+    location.href = url;
+  }
+</script>
+</body>
+</html>

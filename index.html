@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FaithProject - Login</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="index1.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">Light</div>
+      <div>
+        <div class="title">Una ang Ginoo — Light of the World</div>
+        <div class="subtitle">Values-driven web design: faith, service, integrity</div>
+      </div>
+    </div>
+
+    <!-- Login Card with Split Layout -->
+    <div class="login-card" role="main" aria-labelledby="login-header">
+      
+      <!-- Left side: Login -->
+      <div class="login-left">
+        <h2 id="login-header">Sign in</h2>
+        <span class="gold-line"></span>
+        <p class="note">Enter your username and password to access the project pages.</p>
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input id="username" type="text" placeholder="Enter username" aria-required="true" />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="Enter password" aria-required="true" />
+        </div>
+
+        <button class="btn" onclick="tryLogin()">Sign In</button>
+        <p style="margin-top:12px" class="note">Demo credentials: <strong>student / faith123</strong></p>
+      </div>
+
+      <!-- Right side: About Section -->
+      <div class="login-right">
+        <h3>About this Project</h3>
+        <p class="note">
+          This multi-section webpage demonstrates how technology and faith can collaborate 
+          to inspire, inform, and uplift others.
+        </p>
+
+        <!-- Candle Image with Glow Animation (Local Image) -->
+        <img src="front.webp" alt="Candle" class="about-img glow">
+
+        <!-- Bible Verse -->
+        <p class="verse">
+            “Your word is a lamp to my feet and a light to my path.”  
+            <span>— Psalm 119:105</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">Prepared for: "Una ang Ginoo" — Light of the World project</div>
+  </div>
+
+  <!-- Login Script -->
+  <script>
+    const DEMO_USER = "student";
+    const DEMO_PASS = "faith123";
+
+    function tryLogin(){
+      const u = document.getElementById('username').value.trim();
+      const p = document.getElementById('password').value.trim();
+
+      if(!u || !p){
+        alert('Enter both username and password.');
+        return;
+      }
+      if(u === DEMO_USER && p === DEMO_PASS){
+        sessionStorage.setItem('loggedIn','true');
+        sessionStorage.setItem('user', u);
+        location.href = "home.html";
+      } else {
+        alert('Credentials incorrect. Try username: student  password: faith123');
+      }
+    }
+
+    if(sessionStorage.getItem('loggedIn') === 'true'){
+      // Optional: location.href = 'home.html';
+    }
+  </script>
+</body>
+</html>
